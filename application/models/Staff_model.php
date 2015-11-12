@@ -23,3 +23,4 @@ class Staff_model extends CI_Model {
 
 	}
 }
+?>

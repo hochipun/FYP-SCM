@@ -25,27 +25,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="/bootstrap/ie-emulation-modes-warning.js"></script>
 
     <!--fancy box css and js -->
-    <script type="text/javascript" src="/fancybox/lib/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript" src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
-    <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-    <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-    <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
-    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+    <script type="text/javascript" src="/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+    <link rel="stylesheet" type="text/css" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
 
-    <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
-    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+    <!--Chart.js-->
+    <script src="/Chart/Chart.js"></script>
+    
+
     <script type="text/javascript">
       $(document).ready(function() {
-      $("#fancybox").fancybox({
-        'width'       : '75%',
-        'height'      : '75%',
-        'autoScale'       : false,
-        'transitionIn'    : 'none',
-        'transitionOut'   : 'none',
-        'type'        : 'iframe'
+        $("#various").click(function() {
+        $.fancybox.open({
+          href : '<?php echo base_url();?>',
+          type : 'iframe',
+          padding : 5
+        });
       });
-    }    
+      });
+
     </script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -71,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <ul class="nav navbar-nav navbar-right">
             <li><a href=""><bond>Welcome Back!</bond></a></li>
             <li><a href="#"> <?php echo $_SESSION['userfirst']; echo ' ';echo $_SESSION['userlast'];?></a></li>
-            <li><a class="fancybox" data-fancybox-type="iframe" href="<?php echo site_url('profile');?>">Profile</a></li>
+            <li><a id="various" href="javascript:;">Profile</a></li>
             <li><a href="<?php echo base_url();?>">Logout</a></li>
           </ul>
         </div>
