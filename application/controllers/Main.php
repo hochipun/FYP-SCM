@@ -5,8 +5,13 @@ class Main extends CI_Controller {
 
 	public function __construct()
     {
+    	//Load the model when construct
         parent::__construct();
         $this->load->model('staff_model');
+        $this->load->model('material_model');
+        $this->load->model('order_model');
+        $this->load->model('product_model');
+
         $this->load->helper('url');
     }
 
@@ -27,7 +32,11 @@ class Main extends CI_Controller {
 		$this->load->view('dashboard_header.php');
 		$data['type']='order';
 		$this->load->view('dashboard_nav.php',$data);
-		$this->load->view('orders.php');
+		$orderdata['order1'] = $this->order_model->get_activatedorder();
+		$orderdata['order2'] = $this->order_model->get_oldorder();
+		$this->load->view('ordermanage.php',$orderdata);
+		$this->load->view('footer.php');
+		
 	}
 
 	public function material(){
@@ -37,7 +46,9 @@ class Main extends CI_Controller {
 		$this->load->view('dashboard_header.php');
 		$data['type']='material';
 		$this->load->view('dashboard_nav.php',$data);
-		$this->load->view('material.php');
+		$materialdata['material'] = $this->material_model->get_material();
+		$this->load->view('materialmanagement.php',$materialdata);
+		$this->load->view('footer.php');
 	}
 
 	public function product(){
@@ -47,7 +58,9 @@ class Main extends CI_Controller {
 		$this->load->view('dashboard_header.php');
 		$data['type']='product';
 		$this->load->view('dashboard_nav.php',$data);
-		$this->load->view('product.php');
+		$productdata['product'] = $this->product_model->get_product();
+		$this->load->view('productmanage.php',$productdata);
+		$this->load->view('footer.php');
 	}
 
 	public function staff(){

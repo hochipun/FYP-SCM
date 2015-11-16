@@ -7,10 +7,19 @@ class order_model extends CI_Model {
         $this->load->database();
     }
 
-    public function get_orders(){
-    	$query = $this->db->get('users');
+    public function get_activatedorder(){
+        $this->db->from('order');
+        $this->db->where('status', 1);
+        $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function get_oldorder(){
+        $this->db->from('order');
+        $this->db->where('status', 2);
+        $query = $this->db->get();
+        return $query->result_array();
+    }    
 
     public function get_singleorder($id){
 

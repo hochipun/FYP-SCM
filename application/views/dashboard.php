@@ -8,23 +8,23 @@
               <div id="canvas-holder">
                   <canvas id="order-area" width="150" height="150"/>
               </div>
-              <h4>Label</h4>
-              <span class="text-muted">Order Status</span>
+              <h4>Order Status</h4>
+              <span class="text-muted"></span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               <div id="canvas-holder">
                   <canvas id="material-area" width="100" height="100"/>
               </div>
               
-              <h4>Label</h4>
-              <span class="text-muted">Material Status</span>
+              <h4>Material Status</h4>
+              <span class="text-muted"></span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               <div id="canvas-holder">
                   <canvas id="product-area" width="150" height="150"/>
               </div>
-              <h4>Label</h4>
-              <span class="text-muted">Product Status</span>
+              <h4>Product Status</h4>
+              <span class="text-muted"></span>
             </div>
           </div>
           <script>
