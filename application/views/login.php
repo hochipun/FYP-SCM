@@ -1,8 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->helper('url');
-?>
 
+?>
 <!DOCTYPE html>
 <!-- saved from url=(0038)http://v3.bootcss.com/examples/signin/ -->
 <html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -36,7 +36,11 @@ $this->load->helper('url');
   <body>
 
     <div class="container">
-
+    <?php
+    if($tf==TRUE){
+      echo '<div class="alert alert-danger" role="alert">You have logout or Over time, Please login again</div>';
+    }
+    ?>
       <form class="form-signin" action="<?php echo site_url('login/log');?>" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Username</label>
@@ -56,6 +60,5 @@ $this->load->helper('url');
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/bootstrap/ie10-viewport-bug-workaround.js"></script>
-  
-
-</body></html>
+</body>
+</html>

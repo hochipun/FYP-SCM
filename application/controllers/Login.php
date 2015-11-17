@@ -5,7 +5,14 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('login.php');
+		$warningon['tf']=FALSE;
+		$this->load->view('login.php',$warningon);
+		$this->load->helper('url');
+	}
+
+	public function warning(){
+		$warningon['tf']=TRUE;
+		$this->load->view('login.php',$warningon);
 		$this->load->helper('url');
 	}
 

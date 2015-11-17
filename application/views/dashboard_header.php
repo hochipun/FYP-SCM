@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li><a href=""><bond>Welcome Back!</bond></a></li>
             <li><a href="#"> <?php echo $_SESSION['userfirst']; echo ' ';echo $_SESSION['userlast'];?></a></li>
             <li><a id="various" href="javascript:;">Profile</a></li>
-            <li><a href="<?php echo base_url();?>">Logout</a></li>
+            <li><a href="<?php echo site_url('main/logout');?>">Logout</a></li>
           </ul>
         </div>
       </div>

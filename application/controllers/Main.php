@@ -7,10 +7,11 @@ class Main extends CI_Controller {
     {
     	//Load the model when construct
         parent::__construct();
-        $this->load->model('staff_model');
-        $this->load->model('material_model');
         $this->load->model('order_model');
+        $this->load->model('material_model');
         $this->load->model('product_model');
+        $this->load->model('staff_model');
+        $this->load->model('client_model');
 
         $this->load->helper('url');
     }
@@ -18,6 +19,10 @@ class Main extends CI_Controller {
 	public function index(){
 		$this->load->library('session');
 		$this->session;
+		if(isset($_SESSION['userid'])==FALSE){
+			redirect('/login/warning');
+
+		}
 		$this->load->helper('url');
 		$this->load->view('dashboard_header.php');
 		$data['type']='overview';
@@ -28,6 +33,10 @@ class Main extends CI_Controller {
 	public function order(){
 		$this->load->library('session');
 		$this->session;
+		if(isset($_SESSION['userid'])==FALSE){
+			redirect('/login/warning');
+
+		}
 		$this->load->helper('url');
 		$this->load->view('dashboard_header.php');
 		$data['type']='order';
@@ -42,6 +51,10 @@ class Main extends CI_Controller {
 	public function material(){
 		$this->load->library('session');
 		$this->session;
+		if(isset($_SESSION['userid'])==FALSE){
+			redirect('/login/warning');
+
+		}
 		$this->load->helper('url');
 		$this->load->view('dashboard_header.php');
 		$data['type']='material';
@@ -66,6 +79,10 @@ class Main extends CI_Controller {
 	public function staff(){
 		$this->load->library('session');
 		$this->session;
+		if(isset($_SESSION['userid'])==FALSE){
+			redirect('/login/warning');
+
+		}
 		$this->load->helper('url');
 		$this->load->view('dashboard_header.php');
 		$data['type']='staff';
@@ -74,5 +91,30 @@ class Main extends CI_Controller {
 		$this->load->view('staffmanage.php',$staffdata);
 		$this->load->view('footer.php');
 	}
+
+	public function client(){
+		$this->load->library('session');
+		$this->session;
+		if(isset($_SESSION['userid'])==FALSE){
+			redirect('/login/warning');
+
+		}
+		$this->load->helper('url');
+		$this->load->view('dashboard_header.php');
+		$data['type']='client';
+		$this->load->view('dashboard_nav.php',$data);
+		$clientdata['client'] = $this->client_model->get_client();
+		$this->load->view('clientmanage.php',$clientdata);
+		$this->load->view('footer.php');
+	}
+
+	public function logout(){
+		$this->load->library('session');
+		$this->session;
+		session_destroy();
+		redirect('/');
+	}
+
+
 
 }

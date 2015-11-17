@@ -4,6 +4,7 @@
             <li <?php if ($type=='material') echo 'class="active"';?> ><a href="<?php echo site_url('main/material');?>">Material</a></li>
             <li <?php if ($type=='product') echo 'class="active"';?> ><a href="<?php echo site_url('main/product');?>">Product</a></li>
             <li <?php if ($type=='staff') echo 'class="active"';?> ><a href="<?php echo site_url('main/staff');?>">Staff</a></li>
+            <li <?php if ($type=='client') echo 'class="active"';?> ><a href="<?php echo site_url('main/client');?>">Client</a></li>
           
           </ul>
           <!--
