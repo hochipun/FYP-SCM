@@ -12,7 +12,8 @@ class product_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function get_singleorder($id){
+    public function get_addproduct($id){
+        
 
     }
 

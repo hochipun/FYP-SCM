@@ -21,7 +21,6 @@ $this->load->helper('url');
 
     <!-- Custom styles for this template -->
     <link href="/bootstrap/signin.css" rel="stylesheet">
-
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="/bootstrap/ie-emulation-modes-warning.js"></script>
@@ -54,7 +53,6 @@ $this->load->helper('url');
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
-
     </div> <!-- /container -->
 
 

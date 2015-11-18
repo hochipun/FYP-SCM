@@ -7,15 +7,15 @@ class Staff_model extends CI_Model {
         $this->load->database();
     }
 
-    public function get_staff($username = FALSE)
+    public function get_staff($userid = FALSE)
 	{
-	    if ($username === FALSE)
+	    if ($userid === FALSE)
 	    {
 	        $query = $this->db->get('users');
 	        return $query->result_array();
 	    }
 
-	    $query = $this->db->get_where('username', array('username' => $username));
+	    $query = $this->db->get_where('users', array('iduser' => $userid));
 	    return $query->row_array();
 	}
 
