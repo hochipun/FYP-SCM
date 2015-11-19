@@ -12,7 +12,8 @@ class Main extends CI_Controller {
         $this->load->model('product_model');
         $this->load->model('staff_model');
         $this->load->model('client_model');
-
+        $this->load->model('productrecord_model');
+        $this->load->model('materialrecord_model');
         $this->load->helper('url');
     }
 
@@ -27,7 +28,9 @@ class Main extends CI_Controller {
 		$this->load->view('dashboard_header.php');
 		$data['type']='overview';
 		$this->load->view('dashboard_nav.php',$data);
-		$this->load->view('dashboard.php');	
+		$dashboarddata['product']= $this->productrecord_model->get_latestp();
+		$dashboarddata['material'] = $this->materialrecord_model->get_latestm();
+		$this->load->view('dashboard.php',$dashboarddata);	
 	}
 
 	public function order(){

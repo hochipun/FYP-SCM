@@ -40,6 +40,11 @@ $this->load->helper('url');
       echo '<div class="alert alert-danger" role="alert">You have logout or Over time, Please login again</div>';
     }
     ?>
+    <?php
+      if($pwderr==TRUE){
+        echo '<div class="alert alert-danger" role="alert">Wrong username or password</div>';
+      }
+    ?>
       <form class="form-signin" action="<?php echo site_url('login/log');?>" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Username</label>

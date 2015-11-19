@@ -1,18 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Productrecord_model extends CI_Model {
+class Materialrecord_model extends CI_Model {
 	public function __construct()
     {
         $this->load->database();
     }
     
-    public function get_latestp(){
-    	$query = $this->db->get('product_record');
+    public function get_latestm(){
+    	$query = $this->db->get('material_record');
        	return $query->result_array();
     }
 
-    public function addproduct($recorddata){
+    public function addmaterial($recorddata){
     	return $recorddata['comment'];
     }
 }

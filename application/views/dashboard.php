@@ -108,26 +108,57 @@
             </script>
 
 
-          <h2 class="sub-header">Latest update</h2>
+          <h2 class="sub-header">Latest Material update</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>id</th>
+                  <th>Material</th>
+                  <th>Serial_number</th>
+                  <th>Amount</th>
+                  <th>Operator</th>
+                  <th>Other</th>
                 </tr>
               </thead>
               <tbody>
+              <?php foreach ($material as $item0): ?>
                 <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
+                  <td><?php echo $item0['idmaterial_record']; ?></td>
+                    <td><?php echo $item0['material_id']; ?></td>
+                    <td><?php echo $item0['serial_number']; ?></td>
+                    <td><?php echo $item0['amount'];?></td>
+                    <td><?php echo $item0['operator'];?></td>
+                    <td><a href="#">detail</a></td>
                 </tr>
+                <?php endforeach;?>
+              </tbody>
+            </table>
+          </div>
+          <h2 class="sub-header">Latest Product update</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>Product</th>
+                  <th>serial_number</th>
+                  <th>Amount</th>
+                  <th>Operator</th>
+                  <th>Other</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($product as $item): ?>
+                <tr>
+                  <td><?php echo $item['idproduct_record']; ?></td>
+                    <td><?php echo $item['productid']; ?></td>
+                    <td><?php echo $item['serial']; ?></td>
+                    <td><?php echo $item['amount'];?></td>
+                    <td><?php echo $item['operator'];?></td>
+                    <td><a href="#">detail</a></td>
+                </tr>
+                <?php endforeach;?>
               </tbody>
             </table>
           </div>

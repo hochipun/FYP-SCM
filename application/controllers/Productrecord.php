@@ -21,9 +21,11 @@ class Productrecord extends CI_Controller {
         $productrecorddata['comment']=$this->input->post('commeent');
         $productrecorddata['produce']=$this->input->post('md');
         $productrecorddata['expire']=$this->input->post('ed');
+
         $getresult=$this->productrecord_model->add($productrecorddata);
-        if($getresult==TRUE){
-            redirect('/main/product');
+        if($getresult!=NULL){
+            $this->output->set_output($getresult);
+            $this->load->view->('/login');
         }else{
             alert("ERROR");
         }
