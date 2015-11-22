@@ -7,16 +7,29 @@ class Client_model extends CI_Model {
         $this->load->database();
     }
 
-    public function get_client($username = FALSE)
+    public function get_clientlist($page=FALSE)
 	{
-	    if ($username === FALSE)
+	    if ($page === FALSE)
 	    {
-	        $query = $this->db->get('client');
-	        return $query->result_array();
+			$clientlist['list']=$this->getclientrowno();
+	    	$query = $this->db->get('client', 10, 0);
+	    	$clientlist['clientinfo']= $query->result_array();
+	        return $clientlist;
+	    }else{
+			$clientlist['list']=$this->getclientrowno();
+	    	$startingrow=($page-1)*10;
+	    	$query =  $this->db->get('client', 10, $startingrow);
+	    	$clientlist['clientinfo']= $query->result_array(); 
+	        return $clientlist;
 	    }
+	}
 
-	    $query = $this->db->get_where('idclient', array('idclient' => $clientid));
-	    return $query->row_array();
+	private function getclientrowno(){
+		$sql="SELECT count(idclient) as result FROM client";
+		$count = $this->db->query($sql);
+		$row = $count->row();
+		return $row->result;
+		
 	}
 
 	public function add_client(){

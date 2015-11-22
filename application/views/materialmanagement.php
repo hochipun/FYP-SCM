@@ -6,7 +6,7 @@
               <h1 class="page-header">Material</h1>
             </div>
             <div class="col-md-2">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addproduct">Material</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addproduct">Add material</button>
             </div>    
           </div>
           <div class="table-responsive">

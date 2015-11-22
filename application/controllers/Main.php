@@ -70,6 +70,10 @@ class Main extends CI_Controller {
 	public function product(){
 		$this->load->library('session');
 		$this->session;
+		if(isset($_SESSION['userid'])==FALSE){
+			redirect('/login/warning');
+
+		}
 		$this->load->helper('url');
 		$this->load->view('dashboard_header.php');
 		$data['type']='product';
@@ -95,7 +99,7 @@ class Main extends CI_Controller {
 		$this->load->view('footer.php');
 	}
 
-	public function client(){
+	public function client($pageno=FALSE){
 		$this->load->library('session');
 		$this->session;
 		if(isset($_SESSION['userid'])==FALSE){
@@ -106,7 +110,16 @@ class Main extends CI_Controller {
 		$this->load->view('dashboard_header.php');
 		$data['type']='client';
 		$this->load->view('dashboard_nav.php',$data);
-		$clientdata['client'] = $this->client_model->get_client();
+		if($pageno===FALSE){
+			$clientdata = $this->client_model->get_clientlist();
+		}else{
+			//figureout how to use the paraentthesis
+			$clientdata=$this->client_model->get_clientlist($pageno);
+		}
+		$page=$clientdata['list'];
+		$page=$page/10+1;
+		$clientdata['page']=$page;
+		$clientdata['index']=$pageno;
 		$this->load->view('clientmanage.php',$clientdata);
 		$this->load->view('footer.php');
 	}

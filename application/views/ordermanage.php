@@ -22,7 +22,7 @@
                 <?php foreach ($order1 as $item1): ?>
                   <tr>
                     <td><?php echo $item1['idorder']; ?></td>
-                    <td><?php echo $item1['client']; ?></td>
+                    <td><?php echo $item1['client_id']; ?></td>
                     <td><?php echo $item1['product']; ?></td>
                     <td><?php echo $item1['quantity']?></td>
                     <td><?php echo $item1['orderdate']?></td>
@@ -54,7 +54,7 @@
                 <?php foreach ($order2 as $item2): ?>
                   <tr>
                     <td><?php echo $item2['idorder']; ?></td>
-                    <td><?php echo $item2['client']; ?></td>
+                    <td><?php echo $item2['client_id']; ?></td>
                     <td><?php echo $item2['product']; ?></td>
                     <td><?php echo $item2['quantity']?></td>
                     <td><?php echo $item2['orderdate']?></td>
