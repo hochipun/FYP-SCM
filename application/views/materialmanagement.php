@@ -16,6 +16,8 @@
                   <th>Material ID</th>
                   <th>Material Name</th>
                   <th>Specification</th>
+                  <th>Quantity</th>
+                  <th>unit</th>
                   <th>comment</th>
                   <th></th>
                 </tr>
@@ -26,6 +28,8 @@
                     <td><?php echo $item['idmaterial']; ?></td>
                     <td><?php echo $item['name']; ?></td>
                     <td><?php echo $item['specification']; ?></td>
+                    <td><?php echo $item['current_no']; ?></td>
+                    <td><?php echo $item['unit']; ?></td>
                     <td><?php echo $item['comment']?></td>
                     <td><a href="#">detail</a></td>
                   </tr>

@@ -32,7 +32,8 @@ class Client_model extends CI_Model {
 		
 	}
 
-	public function add_client(){
+	public function add_client($name,$phone,$email,$address){
+		//INSERT Start there
 
 	}
 }

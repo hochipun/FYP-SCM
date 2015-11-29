@@ -15,5 +15,12 @@ class Productrecord_model extends CI_Model {
     public function addproduct($recorddata){
     	return $recorddata['comment'];
     }
+
+    public function getquantity($productid){
+        $sql="SELECT SUM(amount) as quantity FROM product_record where productid = ?";
+        $query=$this->db->query($sql, $productid);
+        $row=$query->row();
+        return $row->quantity;
+    }
 }
 ?>

@@ -16,22 +16,45 @@
                   <th>Product ID</th>
                   <th>Product Name</th>
                   <th>Specification</th>
+                  <th>Quantity</th>
+                  <th>Unit</th>
                   <th>comment</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                <?php foreach ($product as $item): ?>
+                <?php foreach ($productinfo as $item): ?>
                   <tr>
                     <td><?php echo $item['idproduct']; ?></td>
                     <td><?php echo $item['name']; ?></td>
                     <td><?php echo $item['specification']; ?></td>
+                    <td><?php echo $item['current_no']; ?></td>
+                    <td><?php echo $item['unit']; ?></td>
                     <td><?php echo $item['comment']?></td>
                     <td><a href="#">detail</a></td>
                   </tr>
                 <?php endforeach; ?>
               </tbody>
             </table>
+            <nav>
+              <ul class="pagination">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <?php 
+                  for($i=1;$i!=$page;$i++){ 
+                ?>
+                <li class="<?php if($i==$index){echo 'active';} ?>"><a href="<?php echo site_url('/main/product')?>/<?php echo $i;?>"><?php echo $i;?></a></li>
+                <?php } ?>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>

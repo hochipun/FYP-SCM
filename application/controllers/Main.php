@@ -33,7 +33,7 @@ class Main extends CI_Controller {
 		$this->load->view('dashboard.php',$dashboarddata);	
 	}
 
-	public function order(){
+	public function order($pageno=FALSE){
 		$this->load->library('session');
 		$this->session;
 		if(isset($_SESSION['userid'])==FALSE){
@@ -51,7 +51,7 @@ class Main extends CI_Controller {
 		
 	}
 
-	public function material(){
+	public function material($pageno=FALSE){
 		$this->load->library('session');
 		$this->session;
 		if(isset($_SESSION['userid'])==FALSE){
@@ -67,7 +67,7 @@ class Main extends CI_Controller {
 		$this->load->view('footer.php');
 	}
 
-	public function product(){
+	public function product($pageno=FALSE){
 		$this->load->library('session');
 		$this->session;
 		if(isset($_SESSION['userid'])==FALSE){
@@ -78,12 +78,21 @@ class Main extends CI_Controller {
 		$this->load->view('dashboard_header.php');
 		$data['type']='product';
 		$this->load->view('dashboard_nav.php',$data);
-		$productdata['product'] = $this->product_model->get_product();
+		if($pageno===FALSE){
+			$productdata = $this->product_model->get_product();
+		}else{
+			$productdata = $this->product_model->get_product($pageno);
+
+		}
+		$page=$productdata['list'];
+		$page=$page/10+1;
+		$productdata['page']=$page;
+		$productdata['index']=$pageno;
 		$this->load->view('productmanage.php',$productdata);
 		$this->load->view('footer.php');
 	}
 
-	public function staff(){
+	public function staff($pageno=FALSE){
 		$this->load->library('session');
 		$this->session;
 		if(isset($_SESSION['userid'])==FALSE){
@@ -94,7 +103,12 @@ class Main extends CI_Controller {
 		$this->load->view('dashboard_header.php');
 		$data['type']='staff';
 		$this->load->view('dashboard_nav.php',$data);
-		$staffdata['staff'] = $this->staff_model->get_staff();
+		if($pageno===FALSE){
+			$staffdata['staff'] = $this->staff_model->get_staff();
+		}else{
+			$staffdata['staff'] = $this->staff_model->get_staff($pageno);
+
+		}
 		$this->load->view('staffmanage.php',$staffdata);
 		$this->load->view('footer.php');
 	}
@@ -111,9 +125,8 @@ class Main extends CI_Controller {
 		$data['type']='client';
 		$this->load->view('dashboard_nav.php',$data);
 		if($pageno===FALSE){
-			$clientdata = $this->client_model->get_clientlist();
+			$clientdata = $this->client_model->get_clientlist(1);
 		}else{
-			//figureout how to use the paraentthesis
 			$clientdata=$this->client_model->get_clientlist($pageno);
 		}
 		$page=$clientdata['list'];
