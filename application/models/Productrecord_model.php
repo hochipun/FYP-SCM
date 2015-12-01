@@ -8,7 +8,9 @@ class Productrecord_model extends CI_Model {
     }
     
     public function get_latestp(){
-    	$query = $this->db->get('product_record');
+        $sql="SELECT * FROM `scm-fyp`.product_record, `scm-fyp`.users
+            where  operator=iduser LIMIT 5";
+    	$query = $this->db->query($sql);
        	return $query->result_array();
     }
 

@@ -31,7 +31,7 @@
                     <td><?php echo $item['current_no']; ?></td>
                     <td><?php echo $item['unit']; ?></td>
                     <td><?php echo $item['comment']?></td>
-                    <td><a href="#">detail</a></td>
+                    <td><a class="fancybox fancybox.iframe"  href="<?php echo site_url('Productrecord/checkrecord');?>/<?php echo $item['idproduct']?>">detail</a></td>
                   </tr>
                 <?php endforeach; ?>
               </tbody>
@@ -118,4 +118,5 @@
         </div>
       </div>
     </div>
+    
 

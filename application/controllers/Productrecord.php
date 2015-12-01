@@ -23,12 +23,12 @@ class Productrecord extends CI_Controller {
         $productrecorddata['expire']=$this->input->post('ed');
 
         $getresult=$this->productrecord_model->add($productrecorddata);
-        if($getresult!=NULL){
-            $this->output->set_output($getresult);
-            $this->load->view->('/login');
-        }else{
-            alert("ERROR");
-        }
+        
+    }
+
+    public function checkrecord($productid=FALSE)
+    {
+        //加载一个视图 用 fancybox 看
     }
 }
 

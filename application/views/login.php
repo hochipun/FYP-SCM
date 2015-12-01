@@ -45,8 +45,8 @@ $this->load->helper('url');
         echo '<div class="alert alert-danger" role="alert">Wrong username or password</div>';
       }
     ?>
-      <form class="form-signin" action="<?php echo site_url('login/log');?>" method="post">
-        <h2 class="form-signin-heading">Please sign in</h2>
+      <form class="form-signin" action="<?php echo site_url('login/log');?>/<?php if($type=='supplier') echo 'supplier'; if($type=='client') echo 'client';?>" method="post">
+        <h2 class="form-signin-heading">Please sign in<?php if($type=='supplier') echo '(for supplier)'; if($type=='client') echo '(for client)';?></h2>
         <label for="inputEmail" class="sr-only">Username</label>
         <input type="text" name="user" id="inputEmail" class="form-control" placeholder="username" required="" autofocus="">
         <label for="inputPassword" class="sr-only">Password</label>

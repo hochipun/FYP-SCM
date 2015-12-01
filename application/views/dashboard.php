@@ -155,7 +155,7 @@
                     <td><?php echo $item['productid']; ?></td>
                     <td><?php echo $item['serial']; ?></td>
                     <td><?php echo $item['amount'];?></td>
-                    <td><?php echo $item['operator'];?></td>
+                    <td><?php echo $item['firstname'];?> <?php echo $item['lastname'];?></td>
                     <td><a href="#">detail</a></td>
                 </tr>
                 <?php endforeach;?>
