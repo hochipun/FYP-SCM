@@ -28,10 +28,10 @@ class Staff_model extends CI_Model {
         	if ($row->password == $forminfo['pwd']){
         		$userinfo = array(
 					'userid'  => $row->iduser,
-					'username'     => $row->username,
-					'userlevel' => $row->userlevel,
-					'userfirst' => $row->firstname,
-					'userlast' => $row->lastname,				
+					'username' =>$row->username,
+					'email'=>$row->username,
+					'userlast' =>$row->lastname,
+					'userfirst'=>$row->firstname				
 				);
 				$this->session->set_userdata($userinfo);
     			return TRUE;

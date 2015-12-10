@@ -24,5 +24,11 @@ class Productrecord_model extends CI_Model {
         $row=$query->row();
         return $row->quantity;
     }
+
+    public function singleproductrecord($productid){
+        $sql="SELECT * FROM product_record where productid=? LIMIT 5";
+        $query = $this->db->query($sql,$productid);
+        return $query;
+    }
 }
 ?>

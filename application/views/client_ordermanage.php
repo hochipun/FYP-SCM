@@ -3,59 +3,82 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <div class="row">
             <div class="col-md-10">
-              <h1 class="page-header">Product</h1>
+              <h1 class="page-header">Order</h1>
             </div>
             <div class="col-md-2">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addproduct">Add Product</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addorder">Add Order</button>
             </div>    
-          </div>      
+          </div>
+          <h2 class="page-header">Activated state order</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Product ID</th>
-                  <th>Product Name</th>
-                  <th>Current Inventory</th>
-                  <th>Unit</th>
+                  <th>Order ID</th>
+                  <th>Client</th>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>Order Date</th>
+                  <th>Deadline</th>
+                  <th>comment</th>
+
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                <?php foreach ($productinfo as $item): ?>
+                <?php foreach ($order1 as $item1): ?>
                   <tr>
-                    <td><?php echo $item['idproduct']; ?></td>
-                    <td><?php echo $item['name']; ?></td>
-                    <td><?php echo $item['current_no']; ?></td>
-                    <td><?php echo $item['unit']; ?></td>
-                    <td><a class="fancybox fancybox.iframe"  href="<?php echo site_url('Productrecord/checkrecord');?>/<?php echo $item['idproduct']?>">detail</a></td>
+                    <td><?php echo $item1['idorder']; ?></td>
+                    <td><?php echo $item1['client_id']; ?></td>
+                    <td><?php echo $item1['product']; ?></td>
+                    <td><?php echo $item1['quantity']?></td>
+                    <td><?php echo $item1['orderdate']?></td>
+                    <td><?php echo $item1['deadline']?></td>
+                    <td><?php echo $item1['comment']?></td>
+                    <td><a href="#">detail</a></td>
                   </tr>
                 <?php endforeach; ?>
               </tbody>
             </table>
-            <nav>
-              <ul class="pagination">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <?php 
-                  for($i=1;$i!=$page;$i++){ 
-                ?>
-                <li class="<?php if($i==$index){echo 'active';} ?>"><a href="<?php echo site_url('/main/product')?>/<?php echo $i;?>"><?php echo $i;?></a></li>
-                <?php } ?>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
           </div>
+          <h2 class="page-header">Old Order</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Client</th>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>Order Date</th>
+                  <th>Deadline</th>
+                  <th>comment</th>
+
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($order2 as $item2): ?>
+                  <tr>
+                    <td><?php echo $item2['idorder']; ?></td>
+                    <td><?php echo $item2['client_id']; ?></td>
+                    <td><?php echo $item2['product']; ?></td>
+                    <td><?php echo $item2['quantity']?></td>
+                    <td><?php echo $item2['orderdate']?></td>
+                    <td><?php echo $item2['deadline']?></td>
+                    <td><?php echo $item2['comment']?></td>
+                    <td><a href="#">detail</a></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+
+
         </div>
       </div>
     </div>
-    <div class="modal fade" id="addproduct">
+    <div class="modal fade" id="addorder">
       <div class="modal-dialog">
         
         <div class="modal-content">
@@ -114,5 +137,3 @@
         </div>
       </div>
     </div>
-    
-

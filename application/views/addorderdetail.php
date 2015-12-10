@@ -1,10 +1,5 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-$this->load->helper('url');
-
-?>
 <!DOCTYPE html>
-<!-- saved from url=(0038)http://v3.bootcss.com/examples/signin/ -->
+<!-- saved from url=(0049)http://v3.bootcss.com/examples/jumbotron-narrow/# -->
 <html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,16 +9,18 @@ $this->load->helper('url');
     <meta name="author" content="">
     <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
 
-    <title>Signin the SCM System</title>
+    <title>Product view</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/bootstrap/signin.css" rel="stylesheet">
+    <link href="/bootstrap/jumbotron-narrow.css" rel="stylesheet">
+
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="/bootstrap/ie-emulation-modes-warning.js"></script>
+    <script src="/Chart/Chart.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -35,33 +32,35 @@ $this->load->helper('url');
   <body>
 
     <div class="container">
-    <?php
-    if($tf==TRUE){
-      echo '<div class="alert alert-danger" role="alert">You have logout or Over time, Please login again</div>';
-    }
-    ?>
-    <?php
-      if($pwderr==TRUE){
-        echo '<div class="alert alert-danger" role="alert">Wrong username or password</div>';
-      }
-    ?>
-      <form class="form-signin" action="<?php echo site_url('login/log');?>/<?php echo $type;?>" method="post">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Username</label>
-        <input type="text" name="user" id="inputEmail" class="form-control" placeholder="username" required="" autofocus="">
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password" required="">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
+      <div class="header clearfix">
+        <h3 class="text-muted"><?php echo $detail['name'];?></h3>
+      </div>
+
+      <div class="row">
+        <form method="post" action="<?php echo site_url('clientmain/confirmorder');?>/<?php echo $detail['idproduct'];?>">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Order Quantity</label>
+            <input type="number" name="orderquantity" class="form-control" id="orderquantity" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Due</label>
+            <input type="date" name="due" class="form-control" id="duedate" placeholder="">
+          </div>
+          
+          
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+
+      <footer class="footer">
+        <p>© 2015 FYP SCM</p>
+      </footer>
+
     </div> <!-- /container -->
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/bootstrap/ie10-viewport-bug-workaround.js"></script>
-</body>
-</html>
+  
+
+</body></html>

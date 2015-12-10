@@ -57,14 +57,14 @@ class Login extends CI_Controller {
 			if($result==TRUE){
 				redirect('main');
 			}else if($result==FALSE){
-				redirect('/login/wrong');
+				redirect('/');
 			}
 		}else if($type=='supplier'){
 			$result=$this->supplier_model->supplierlog($data);
 			if($result==TRUE){
 				redirect('suppliermain');
 			}else if($result==FALSE){
-				redirect('/index');
+				redirect('/');
 			}
 
 		}else if($type=='client'){
@@ -72,7 +72,7 @@ class Login extends CI_Controller {
 			if($result==TRUE){
 				redirect('clientmain');
 			}else if($result==FALSE){
-				redirect('/index');
+				redirect('/');
 			}
 		}
 

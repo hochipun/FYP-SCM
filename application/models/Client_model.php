@@ -39,7 +39,7 @@ class Client_model extends CI_Model {
         	$row = $query->row();
         	if ($row->password == $forminfo['pwd']){
         		$userinfo = array(
-					'idclient'  => $row->iduser,				
+					'idclient'  => $row->idclient,				
 				);
 				$this->session->set_userdata($userinfo);
     			return TRUE;
@@ -49,6 +49,12 @@ class Client_model extends CI_Model {
 		}else{
     		return FALSE;
     	}
+    }
+
+    public function profile($client){
+    	$this->db->where('idclient',$client);
+    	$query = $this->db->get('client');
+    	return $query->row();
     }
 	
 

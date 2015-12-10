@@ -8,7 +8,9 @@ class Productrecord extends CI_Controller {
     	//Load the model when construct
         parent::__construct();
         $this->load->model('product_model');
+        $this->load->model('material_model');
         $this->load->model('productrecord_model');
+        $this->load->model('productrelateMaterial_model');
         $this->load->helper('url');
     }
 
@@ -28,7 +30,19 @@ class Productrecord extends CI_Controller {
 
     public function checkrecord($productid=FALSE)
     {
+        $product['detail']=$this->product_model->singleproductdetail($productid);
+        $product['recorddetail']=$this->productrecord_model->singleproductrecord($productid);
+        $product['type']='productrecord';
+        $this->load->view('single_product_view.php',$product);   
         //加载一个视图 用 fancybox 看
+    }
+
+    public function relatematerial($productid=FALSE){
+        $product['detail']=$this->product_model->singleproductdetail($productid);
+        $product['materialrelate']=$this->productrelateMaterial_model->queryproduct($productid);
+        $product['type']='relatematerial';
+        $this->load->view('single_product_relate_view',$product);
+
     }
 }
 

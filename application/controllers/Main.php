@@ -12,6 +12,7 @@ class Main extends CI_Controller {
         $this->load->model('product_model');
         $this->load->model('staff_model');
         $this->load->model('client_model');
+        $this->load->model('supplier_model');
         $this->load->model('productrecord_model');
         $this->load->model('materialrecord_model');
         $this->load->helper('url');
@@ -135,6 +136,31 @@ class Main extends CI_Controller {
 		$clientdata['index']=$pageno;
 		$this->load->view('clientmanage.php',$clientdata);
 		$this->load->view('footer.php');
+	}
+
+	public function supplier($pageno=FALSE){
+		$this->load->library('session');
+		$this->session;
+		if(isset($_SESSION['userid'])==FALSE){
+			redirect('/login/warning');
+
+		}
+		$this->load->helper('url');
+		$this->load->view('dashboard_header.php');
+		$data['type']='supplier';
+		$this->load->view('dashboard_nav.php',$data);
+		if($pageno===FALSE){
+			$supplierdata = $this->supplier_model->get_supplierlist(1);
+		}else{
+			$supplierdata=$this->supplier_model->get_supplierlist($pageno);
+		}
+		$page=$supplierdata['list'];
+		$page=$page/10+1;
+		$supplierdata['page']=$page;
+		$supplierdata['index']=$pageno;
+		$this->load->view('suppliermanage.php',$supplierdata);
+		$this->load->view('footer.php');
+
 	}
 
 	public function logout(){

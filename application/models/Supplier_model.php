@@ -14,7 +14,7 @@ class Supplier_model extends CI_Model {
         	$row = $query->row();
         	if ($row->password == $forminfo['pwd']){
         		$userinfo = array(
-					'idsupplier'  => $row->iduser,				
+					'idsupplier'  => $row->idsupplier,				
 				);
 				$this->session->set_userdata($userinfo);
     			return TRUE;
@@ -25,6 +25,31 @@ class Supplier_model extends CI_Model {
     		return FALSE;
     	}
     }
+
+    public function get_supplierlist($page=FALSE)
+	{
+	    if ($page === FALSE)
+	    {
+			$supplierlist['list']=$this->getsupplierrowno();
+	    	$query = $this->db->get('supplier', 10, 0);
+	    	$supplierlist['supplierinfo']= $query->result_array();
+	        return $supplierlist;
+	    }else{
+			$supplierlist['list']=$this->getsupplierrowno();
+	    	$startingrow=($page-1)*10;
+	    	$query =  $this->db->get('supplier', 10, $startingrow);
+	    	$supplierlist['supplierinfo']= $query->result_array(); 
+	        return $supplierlist;
+	    }
+	}
+
+	private function getsupplierrowno(){
+		$sql="SELECT count(idsupplier) as result FROM supplier";
+		$count = $this->db->query($sql);
+		$row = $count->row();
+		return $row->result;
+		
+	}
 
 
 }

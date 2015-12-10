@@ -14,7 +14,31 @@ class Suppliermain extends CI_Controller {
     }
 
 	public function index(){
-        $this->load->view('index.php');
+        $this->load->library('session');
+        $this->session;
+        if(isset($_SESSION['idsupplier'])==FALSE){
+            redirect('/');
 
+        }
+        $this->load->helper('url');
+        $this->load->view('dashboard_header_supplier.php');
+        $data['type']='profile';
+        $this->load->view('dashboard_nav_supplier.php',$data);
+        $this->load->view('dashboard_supplier.php');
+
+    }
+
+    public function supplyitem(){
+        $this->load->library('session');
+        $this->session;
+        if(isset($_SESSION['idsupplier'])==FALSE){
+            redirect('/');
+
+        }
+        $this->load->helper('url');
+        $this->load->view('dashboard_header_supplier.php');
+        $data['type']='supplyitem';
+        $this->load->view('dashboard_nav_supplier.php',$data);
+        $this->load->view('footer.php');
     }
 }
