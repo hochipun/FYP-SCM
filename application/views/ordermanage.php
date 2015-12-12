@@ -35,7 +35,7 @@
                     <td><?php echo $item1['orderdate']?></td>
                     <td><?php echo $item1['deadline']?></td>
                     <td><?php echo $item1['comment']?></td>
-                    <td><a href="#">detail</a></td>
+                    <td><a class="fancybox fancybox.iframe" href="<?php echo site_url('/ordercontrol/checkmaterial');?>/<?php echo $item1['idorder'];?>">detail</a></td>
                   </tr>
                 <?php endforeach; ?>
               </tbody>
@@ -90,15 +90,47 @@
                 </tr>
               </thead>
               <tbody>
-                <?php foreach ($order2 as $item2): ?>
+                <?php foreach ($order3 as $item3): ?>
                   <tr>
-                    <td><?php echo $item2['idorder']; ?></td>
-                    <td><?php echo $item2['client_id']; ?></td>
-                    <td><?php echo $item2['product']; ?></td>
-                    <td><?php echo $item2['quantity']?></td>
-                    <td><?php echo $item2['orderdate']?></td>
-                    <td><?php echo $item2['deadline']?></td>
-                    <td><?php echo $item2['comment']?></td>
+                    <td><?php echo $item3['idorder']; ?></td>
+                    <td><?php echo $item3['client_id']; ?></td>
+                    <td><?php echo $item3['product']; ?></td>
+                    <td><?php echo $item3['quantity']?></td>
+                    <td><?php echo $item3['orderdate']?></td>
+                    <td><?php echo $item3['deadline']?></td>
+                    <td><?php echo $item3['comment']?></td>
+                    <td><a href="#">detail</a></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+          <h2 class="page-header">Finished Order</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Client</th>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>Order Date</th>
+                  <th>Deadline</th>
+                  <th>comment</th>
+
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($order4 as $item4): ?>
+                  <tr>
+                    <td><?php echo $item4['idorder']; ?></td>
+                    <td><?php echo $item4['client_id']; ?></td>
+                    <td><?php echo $item4['product']; ?></td>
+                    <td><?php echo $item4['quantity']?></td>
+                    <td><?php echo $item4['orderdate']?></td>
+                    <td><?php echo $item4['deadline']?></td>
+                    <td><?php echo $item4['comment']?></td>
                     <td><a href="#">detail</a></td>
                   </tr>
                 <?php endforeach; ?>

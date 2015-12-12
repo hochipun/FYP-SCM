@@ -17,6 +17,8 @@ class productrelateMaterial_model extends CI_Model {
 
     }
 
+    
+
 }
 
 ?>

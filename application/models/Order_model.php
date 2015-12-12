@@ -7,7 +7,7 @@ class order_model extends CI_Model {
         $this->load->database();
     }
 
-    public function get_activatedorder($client=FALSE){
+    public function get_neworder($client=FALSE){
         $this->db->from('order');
         $this->db->where('status', 1);
         //if($client===FALSE){
@@ -47,6 +47,14 @@ class order_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function count_neworder(){
+        $sql="SELECT count(*) as result FROM `scm-fyp`.order where status=1";
+        $query=$this->db->query($sql);
+        $row=$query->row();
+        $result=$row->result;
+        return $result;
+    }
+
     public function addorderbyclient($product,$quantity,$due,$client){
         $this->load->helper('date');
         date_default_timezone_set();
@@ -66,7 +74,38 @@ class order_model extends CI_Model {
 
 
     public function get_singleorder($id){
+        $id=(int)$id;
+        $sql="SELECT * FROM `scm-fyp`.order WHERE idorder=?";
+        $query=$this->db->query($sql,$id);
+        $row=$query->row();
+        $result=array(
+            'idorder'=>$row->idorder,
+            'client'=>$row->client_id,
+            'product'=>$row->product,
+            'quantity'=>$row->quantity,
+            'due'=>$row->deadline
+        );
+        return $result;
+    }
 
+    public function confirm($order,$user){
+        $data=array(
+            'operator'=>$user,
+            'status'=>2,
+        );
+        $this->db->where('idorder', $order);
+        $result=$this->db->update('order', $data);
+        return $result;
+    }
+
+    public function sent($order,$user){
+        $data=array(
+            'operator'=>$user,
+            'status'=>3,
+        );
+        $this->db->where('idorder',$order);
+        $result=$this->db->update('order',$data);
+        return $result;
     }
 
 }

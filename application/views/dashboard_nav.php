@@ -1,6 +1,6 @@
 
             <li <?php if ($type=='overview') echo 'class="active"';?> ><a href="<?php echo site_url('main');?>">Overview </a></li>
-            <li <?php if ($type=='order') echo 'class="active"';?> ><a href="<?php echo site_url('main/order');?>">Orders</a></li>
+            <li <?php if ($type=='order') echo 'class="active"';?> ><a href="<?php echo site_url('main/order');?>">Orders <span class="badge"><?php echo $count;?></span></a></li>
             <li <?php if ($type=='material') echo 'class="active"';?> ><a href="<?php echo site_url('main/material');?>">Material</a></li>
             <li <?php if ($type=='product') echo 'class="active"';?> ><a href="<?php echo site_url('main/product');?>">Product</a></li>
             <li <?php if ($type=='staff') echo 'class="active"';?> ><a href="<?php echo site_url('main/staff');?>">Staff</a></li>

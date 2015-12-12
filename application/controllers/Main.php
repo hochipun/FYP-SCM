@@ -27,6 +27,7 @@ class Main extends CI_Controller {
 		}
 		$this->load->helper('url');
 		$this->load->view('dashboard_header.php');
+		$data['count'] = $this->order_model->count_neworder();
 		$data['type']='overview';
 		$this->load->view('dashboard_nav.php',$data);
 		$dashboarddata['product']= $this->productrecord_model->get_latestp();
@@ -43,10 +44,14 @@ class Main extends CI_Controller {
 		}
 		$this->load->helper('url');
 		$this->load->view('dashboard_header.php');
+		$data['count'] = $this->order_model->count_neworder();
 		$data['type']='order';
 		$this->load->view('dashboard_nav.php',$data);
-		$orderdata['order1'] = $this->order_model->get_activatedorder();
-		$orderdata['order2'] = $this->order_model->get_oldorder();
+		$orderdata['order1'] = $this->order_model->get_neworder();
+		$orderdata['order2'] = $this->order_model->get_confirmedorder();
+		$orderdata['order3'] = $this->order_model->get_sentorder();
+		$orderdata['order4'] = $this->order_model->get_oldorder();
+
 		$this->load->view('ordermanage.php',$orderdata);
 		$this->load->view('footer.php');
 		
@@ -61,6 +66,7 @@ class Main extends CI_Controller {
 		}
 		$this->load->helper('url');
 		$this->load->view('dashboard_header.php');
+		$data['count'] = $this->order_model->count_neworder();
 		$data['type']='material';
 		$this->load->view('dashboard_nav.php',$data);
 		$materialdata['material'] = $this->material_model->get_material();
@@ -77,6 +83,7 @@ class Main extends CI_Controller {
 		}
 		$this->load->helper('url');
 		$this->load->view('dashboard_header.php');
+		$data['count'] = $this->order_model->count_neworder();
 		$data['type']='product';
 		$this->load->view('dashboard_nav.php',$data);
 		if($pageno===FALSE){
@@ -102,6 +109,8 @@ class Main extends CI_Controller {
 		}
 		$this->load->helper('url');
 		$this->load->view('dashboard_header.php');
+		$data['count'] = $this->order_model->count_neworder();
+
 		$data['type']='staff';
 		$this->load->view('dashboard_nav.php',$data);
 		if($pageno===FALSE){
@@ -123,6 +132,8 @@ class Main extends CI_Controller {
 		}
 		$this->load->helper('url');
 		$this->load->view('dashboard_header.php');
+		$data['count'] = $this->order_model->count_neworder();
+
 		$data['type']='client';
 		$this->load->view('dashboard_nav.php',$data);
 		if($pageno===FALSE){
@@ -147,6 +158,8 @@ class Main extends CI_Controller {
 		}
 		$this->load->helper('url');
 		$this->load->view('dashboard_header.php');
+		$data['count'] = $this->order_model->count_neworder();
+
 		$data['type']='supplier';
 		$this->load->view('dashboard_nav.php',$data);
 		if($pageno===FALSE){
