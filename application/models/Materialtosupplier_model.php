@@ -13,4 +13,15 @@ class materialtosupplier_model extends CI_Model {
     	return $query;
     }
 
+    public function addrequest($supplier,$material,$amount){
+    	$data=array(
+			'supplier'=>$supplier,
+			'material'=>$material,
+			'amount'=>$amount,
+			'status'=>0
+		);
+		$result=$this->db->insert('materialorder', $data);
+		return $result;
+    }
+
 }

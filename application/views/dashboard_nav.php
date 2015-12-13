@@ -2,6 +2,7 @@
             <li <?php if ($type=='overview') echo 'class="active"';?> ><a href="<?php echo site_url('main');?>">Overview </a></li>
             <li <?php if ($type=='order') echo 'class="active"';?> ><a href="<?php echo site_url('main/order');?>">Orders <span class="badge"><?php echo $count;?></span></a></li>
             <li <?php if ($type=='material') echo 'class="active"';?> ><a href="<?php echo site_url('main/material');?>">Material</a></li>
+            <li <?php if ($type=='materialorder') echo 'class="active"';?> ><a href="<?php echo site_url('main/materialorder');?>">Material order</a></li>
             <li <?php if ($type=='product') echo 'class="active"';?> ><a href="<?php echo site_url('main/product');?>">Product</a></li>
             <li <?php if ($type=='staff') echo 'class="active"';?> ><a href="<?php echo site_url('main/staff');?>">Staff</a></li>
             <li <?php if ($type=='client') echo 'class="active"';?> ><a href="<?php echo site_url('main/client');?>">Client</a></li>

@@ -47,6 +47,31 @@ class product_model extends CI_Model {
 
     }
 
+    public function lockamount($product,$quantity){
+        $sql="SELECT locked FROM product where idproduct=?";
+        $query=$this->db->query($sql,$product);
+        $result=$query->row();
+        $data['locked']=$result->locked;
+        $data['locked']=(int)$data['locked']+(int)$quantity;
+        $this->db->where('idproduct', $product);
+        $updatesuccess=$this->db->update('product', $data);
+        return $updatesuccess;
+    }
+
+    public function cutdowncurrent($product,$amount){
+        $sql="SELECT current_no,locked from product where idproduct=?";
+        $query=$this->db->query($sql,$product);
+        $result=$query->row();
+        $data['current_no']=$result->current_no;
+        $data['locked']=$result->locked;
+        $data['current_no']=(int)$data['current_no']-(int)$amount;
+        $data['locked']=(int)$data['locked']-(int)$amount;
+        $this->db->where('idproduct', $product);
+        $updatesuccess=$this->db->update('product', $data);
+        return $updatesuccess;
+
+    }
+
     public function singleproductdetail($productid){
         $sql="SELECT * FROM product where idproduct=?";
         $query=$this->db->query($sql,$productid);

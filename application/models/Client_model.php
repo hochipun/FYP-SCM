@@ -39,7 +39,8 @@ class Client_model extends CI_Model {
         	$row = $query->row();
         	if ($row->password == $forminfo['pwd']){
         		$userinfo = array(
-					'idclient'  => $row->idclient,				
+					'idclient'  => $row->idclient,	
+					'name' => $row->name			
 				);
 				$this->session->set_userdata($userinfo);
     			return TRUE;

@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+$this->load->library('session');
+$this->session;
 ?>
+
 <!DOCTYPE html>
 <!-- saved from url=(0041)http://v3.bootcss.com/examples/dashboard/ -->
 <html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -82,6 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><bond>Welcome Back!</bond></a></li>
+            <li><a href="#"><?php echo $_SESSION['name'];?></a></li>
             <li><a data-toggle="modal" data-target="#logoutmodal">Logout</a></li>
           </ul>
           

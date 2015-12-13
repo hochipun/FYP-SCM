@@ -30,31 +30,14 @@
   </head>
 
   <body>
-  <?php $confirmavailable;?>
 
     <div class="container">
       <div class="header clearfix">
-        <h3 class="text-muted">Material:<?php echo $materialname;?></h3>
+        <h3 class="text-muted">Order</h3>
       </div>
-      <h3>Supplier available</h3>
-      <div class="marketing row">
-      <?php foreach ($detail as $item):?>
-      <div class="col-lg-6">
-        <h4><?php echo $item['sname'];?></h4>
-        <form name="requestamount" method="post" action="<?php echo site_url('/supplycontrol/sendrequest/');?>/<?php echo $item['idsupplier'];?>">
-          <div class="form-group">
-            <label>Require amount:</label>
-            <input name="quantity" class="col-lg-3" type="number"/>
-          </div>
-          <div class="form-group"><input name="material" class="invisible" value="<?php echo $item['idmaterial'];?>"/>
-          </div>
-          <div class="form-group">
-          <button type="submit" class="btn">Send request</button>
-          </div>
-        </form>
-      <?php endforeach;?>
+      <div class="marketing row jumbotron">
+        <h1>Your operation is success</h1>
       </div>
-      <a class="btn" href="#" role="button">Back</a>
 
       <footer class="footer">
         <p>© 2015 FYP SCM</p>

@@ -30,5 +30,17 @@ class Productrecord_model extends CI_Model {
         $query = $this->db->query($sql,$productid);
         return $query;
     }
+
+    public function addcutrecord($product,$amount,$date,$operator){
+        $data=array(
+            'productid'=>$product,
+            'record_date'=>$date,
+            'amount'=>$amount,
+            'operation'=>0,
+            'operator'=>$operator
+        );
+        $result=$this->db->insert('product_record', $data);
+        return $result;
+    }
 }
 ?>

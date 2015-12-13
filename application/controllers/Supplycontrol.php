@@ -24,13 +24,16 @@ class Supplycontrol extends CI_Controller {
         $this->load->view('material_supplier.php',$supplyinfo);
     }
 
-    public function sendrequest(){
+    public function sendrequest($supplier){
         $this->load->helper('url');
-        $this->load->database();
-        $user=$this->input->post('quantity');
-        $pwd=$this->input->post('pwd');
+        $material=$this->input->post('material');
+        $amount=$this->input->post('quantity');
+        $result=$this->materialtosupplier_model->addrequest($supplier,$material,$amount);
+        if($result==TRUE){
+            $this->load->view('confirmordersuccess.php');
+        }
     }
-
+                    
 }
 
 ?>

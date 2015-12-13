@@ -40,5 +40,7 @@ class Suppliermain extends CI_Controller {
         $data['type']='supplyitem';
         $this->load->view('dashboard_nav_supplier.php',$data);
         $this->load->view('footer.php');
+    
     }
+
 }

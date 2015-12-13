@@ -30,7 +30,7 @@
                   <tr>
                     <td><?php echo $item1['idorder']; ?></td>
                     <td><?php echo $item1['client_id']; ?></td>
-                    <td><?php echo $item1['product']; ?></td>
+                    <td><?php echo $item1['name']; ?></td>
                     <td><?php echo $item1['quantity']?></td>
                     <td><?php echo $item1['orderdate']?></td>
                     <td><?php echo $item1['deadline']?></td>
@@ -62,12 +62,12 @@
                   <tr>
                     <td><?php echo $item2['idorder']; ?></td>
                     <td><?php echo $item2['client_id']; ?></td>
-                    <td><?php echo $item2['product']; ?></td>
+                    <td><?php echo $item2['name']; ?></td>
                     <td><?php echo $item2['quantity']?></td>
                     <td><?php echo $item2['orderdate']?></td>
                     <td><?php echo $item2['deadline']?></td>
                     <td><?php echo $item2['comment']?></td>
-                    <td><a href="#">detail</a></td>
+                    <td><a class="fancybox fancybox.iframe" href="<?php echo site_url('ordercontrol/preview_sendorder/');?>/<?php echo $item2['idorder'];?>">detail</a></td>
                   </tr>
                 <?php endforeach; ?>
               </tbody>
@@ -94,7 +94,7 @@
                   <tr>
                     <td><?php echo $item3['idorder']; ?></td>
                     <td><?php echo $item3['client_id']; ?></td>
-                    <td><?php echo $item3['product']; ?></td>
+                    <td><?php echo $item3['name']; ?></td>
                     <td><?php echo $item3['quantity']?></td>
                     <td><?php echo $item3['orderdate']?></td>
                     <td><?php echo $item3['deadline']?></td>
@@ -126,7 +126,7 @@
                   <tr>
                     <td><?php echo $item4['idorder']; ?></td>
                     <td><?php echo $item4['client_id']; ?></td>
-                    <td><?php echo $item4['product']; ?></td>
+                    <td><?php echo $item4['name']; ?></td>
                     <td><?php echo $item4['quantity']?></td>
                     <td><?php echo $item4['orderdate']?></td>
                     <td><?php echo $item4['deadline']?></td>

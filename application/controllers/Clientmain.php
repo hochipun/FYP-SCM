@@ -24,6 +24,8 @@ class Clientmain extends CI_Controller {
         $this->load->helper('url');
         $this->load->view('dashboard_header_client.php');
         $data['type']='profile';
+        $data['count'] = $this->order_model->count_neworder($_SESSION['idclient']);
+
         $this->load->view('dashboard_nav_client.php',$data);
         $profile = $this->client_model->profile($_SESSION['idclient']);
         $this->load->view('dashboard_client.php',$profile);
@@ -45,9 +47,13 @@ class Clientmain extends CI_Controller {
         $this->load->helper('url');
         $this->load->view('dashboard_header_client.php');
         $data['type']='myorder';
+        $data['count'] = $this->order_model->count_neworder($_SESSION['idclient']);
         $this->load->view('dashboard_nav_client.php',$data);
-        $orderdata['order1'] = $this->order_model->get_activatedorder();
-        $orderdata['order2'] = $this->order_model->get_oldorder();
+        $orderdata['order1'] = $this->order_model->get_neworder();
+        $orderdata['order2'] = $this->order_model->get_confirmedorder();
+        $orderdata['order3'] = $this->order_model->get_sentorder();
+        $orderdata['order4'] = $this->order_model->get_oldorder();
+
         $this->load->view('client_ordermanage.php',$orderdata);
         $this->load->view('footer.php');
 
@@ -64,6 +70,8 @@ class Clientmain extends CI_Controller {
         $this->load->helper('url');
         $this->load->view('dashboard_header_client.php');
         $data['type']='neworder';
+        $data['count'] = $this->order_model->count_neworder($_SESSION['idclient']);
+
         $this->load->view('dashboard_nav_client.php',$data);
         $product=$this->product_model->clientviewproduct($page);
         $pagetotal=$product['list']/20;
@@ -97,7 +105,10 @@ class Clientmain extends CI_Controller {
         $this->load->helper('url');
         $orderquantity=$this->input->post('orderquantity');
         $due=$this->input->post('due');
-        $this->order_model->addorderbyclient($productid,$orderquantity,$due,$_SESSION['idclient']);
+        $result=$this->order_model->addorderbyclient($productid,$orderquantity,$due,$_SESSION['idclient']);
+        if($result==TRUE){
+            $this->load->view('confirmordersuccess.php');
+        }
 
 
     }

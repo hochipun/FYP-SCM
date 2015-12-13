@@ -1,7 +1,6 @@
-
             <li <?php if ($type=='profile') echo 'class="active"';?> ><a href="<?php echo site_url('suppliermain');?>">View Profile</a></li>            
+            <li <?php if ($type=='supplyrequest') echo 'class="active"';?>> <a href="<?php echo site_url('suppliermain/supplyrequest');?>">Supply request</a></li>
             <li <?php if ($type=='supplyitem') echo 'class="active"';?> ><a href="<?php echo site_url('suppliermain/supplyitem');?>">My suppliy item </a></li>
-
           </ul>
           <!--
           <ul class="nav nav-sidebar">
