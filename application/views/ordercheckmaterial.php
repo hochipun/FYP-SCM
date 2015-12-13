@@ -30,7 +30,7 @@
   </head>
 
   <body>
-  <?php $confirmavailable;?>
+  <?php $produceavailable=TRUE;?>
 
     <div class="container">
       <div class="header clearfix">
@@ -50,7 +50,7 @@
               echo "satisfy";
             else{
               echo "Not enough, current is: ".$item['current_no'];
-              $confirmavailable=FALSE;
+              $produceavailable=FALSE;
             ?>
             </p>
             <a class='btn btn-primary' href="<?php echo site_url('/supplycontrol/checksupplier');?>/<?php echo $item['idmaterial'];?>" role="button">Contact supplier</a>
@@ -60,7 +60,10 @@
           </div>
         <?php endforeach; ?>
       </div>
-      <a class="btn btn-danger" disabled="disabled" href="#" role="button">Confirm</a>
+      <?php if($produceavailable==TRUE){
+        echo '<a class="btn btn-primary" href="" role="button">Produce</a>';
+      }?>
+      <a class="btn btn-danger" href="" role="button">Reject order</a>
 
       <footer class="footer">
         <p>© 2015 FYP SCM</p>

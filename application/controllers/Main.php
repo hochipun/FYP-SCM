@@ -9,6 +9,7 @@ class Main extends CI_Controller {
         parent::__construct();
         $this->load->model('order_model');
         $this->load->model('material_model');
+        $this->load->model('materialorder_model');
         $this->load->model('product_model');
         $this->load->model('staff_model');
         $this->load->model('client_model');
@@ -72,6 +73,28 @@ class Main extends CI_Controller {
 		$materialdata['material'] = $this->material_model->get_material();
 		$this->load->view('materialmanagement.php',$materialdata);
 		$this->load->view('footer.php');
+	}
+
+	public function materialorder($pageno=FALSE){
+		$this->load->library('session');
+		$this->session;
+		if(isset($_SESSION['userid'])==FALSE){
+			redirect('/login/warning');
+
+		}
+		$this->load->helper('url');
+		$this->load->view('dashboard_header.php');
+		$data['count'] = $this->order_model->count_neworder();
+		$data['type']='materialorder';
+		$this->load->view('dashboard_nav.php',$data);
+		$orderdata['order1'] = $this->materialorder_model->get_materialorder();
+		$orderdata['order2'] = $this->materialorder_model->get_finishedmaterialorder();
+		$this->load->view('materialordermanage.php',$orderdata);
+		$this->load->view('footer.php');
+		
+
+
+
 	}
 
 	public function product($pageno=FALSE){

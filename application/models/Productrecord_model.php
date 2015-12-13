@@ -26,7 +26,7 @@ class Productrecord_model extends CI_Model {
     }
 
     public function singleproductrecord($productid){
-        $sql="SELECT * FROM product_record where productid=? LIMIT 5";
+        $sql="SELECT * FROM product_record,`scm-fyp`.users where operator=iduser and productid=? LIMIT 5";
         $query = $this->db->query($sql,$productid);
         return $query;
     }

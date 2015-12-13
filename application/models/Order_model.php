@@ -132,6 +132,17 @@ class order_model extends CI_Model {
         return $result;
     }
 
+    public function finishorder($order){
+        $data = array(
+            'status' => 4,
+        );
+
+        $this->db->where('idorder', $order);
+        $result=$this->db->update('order', $data);
+        return $result;
+
+    }
+
 }
 
 ?>

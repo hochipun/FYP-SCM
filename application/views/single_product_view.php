@@ -83,9 +83,9 @@
             <?php foreach ($recorddetail->result_array() as $item): ?>
               <tr>
                 <td><?php echo $item['serial']; ?></td>
-                <td><?php echo $item['io']; ?></td>
+                <td><?php echo $item['operation']; ?></td>
                 <td><?php echo $item['amount']; ?></td>
-                <td><?php echo $item['operator']?></td>
+                <td><?php echo $item['firstname'].' '.$item['lastname']?></td>
               </tr>
             <?php endforeach; ?>
           </tbody>

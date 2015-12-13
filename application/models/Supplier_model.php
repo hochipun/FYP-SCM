@@ -14,7 +14,8 @@ class Supplier_model extends CI_Model {
         	$row = $query->row();
         	if ($row->password == $forminfo['pwd']){
         		$userinfo = array(
-					'idsupplier'  => $row->idsupplier,				
+					'idsupplier'  => $row->idsupplier,
+					'name' =>$row->name				
 				);
 				$this->session->set_userdata($userinfo);
     			return TRUE;

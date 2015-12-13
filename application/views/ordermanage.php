@@ -6,7 +6,6 @@
               <h1 class="page-header">Order</h1>
             </div>
             <div class="col-md-2">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addorder">Add Order</button>
             </div>    
           </div>
           <h2 class="page-header">New order</h2>

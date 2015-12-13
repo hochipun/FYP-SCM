@@ -16,9 +16,19 @@ class material_model extends CI_Model {
 
     }
 
-    public function add_material(){
+    public function add_materialamount($material,$amount){
+        $this->db->where('idmaterial', $material);
+        $query=$this->db->get('material');
+        $result=$query->row();
+        $current=$result->current_no;
+        $data['current_no']=(int)$current+(int)$amount;
+        $this->db->where('idmaterial', $material);
+        $import=$this->db->update('material',$data);
+        return $import;
         
     }
+
+
 
 }
 

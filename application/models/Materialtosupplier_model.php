@@ -24,4 +24,11 @@ class materialtosupplier_model extends CI_Model {
 		return $result;
     }
 
+    public function querymysupply($supplier){
+        $sql="SELECT material.name as mname,supplier.name as sname, idmaterial,idsupplier,specification FROM `scm-fyp`.supply_match,supplier,material where  material=idmaterial and supply_match.supplier=supplier.idsupplier and supply_match.supplier=?";
+        $query=$this->db->query($sql,$supplier);
+        $result=$query->result_array();
+        return $result;
+    }
+
 }

@@ -90,4 +90,14 @@ class Ordercontrol extends CI_Controller {
         }
 
     }
+
+    public function finish_order($order){
+        $this->load->library('session');
+        $this->session;
+        $result=$this->order_model->finishorder($order);
+        if($result==TRUE){
+            redirect('/clientmain/myorder/');
+        }
+
+    }
 }
